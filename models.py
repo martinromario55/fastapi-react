@@ -14,6 +14,9 @@ class Product(Model):
     
     supplied_by = fields.ForeignKeyField('models.Supplier', related_name="goods_supplied")
     
+    class Meta:
+        table = "products"
+    
     
     
 class Supplier(Model):
@@ -22,6 +25,9 @@ class Supplier(Model):
     company = fields.CharField(max_length=50)
     email = fields.CharField(max_length=50)
     phone = fields.CharField(max_length=15)
+    
+    class Meta:
+        table = "suppliers"
     
     
 # Create pydantic models

@@ -1,14 +1,20 @@
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 
-
-app = FastAPI()
-
+from routes import router
 
 
-@app.get("/")
-def read_root():
-    return {"message": "Hello World"}
+app = FastAPI(
+    title="FastAPI with React",
+    description="A fast ORM for Tortoise ORM",
+    version="0.1.0",
+    docs_url="/",
+    redoc_url="/redoc",
+)
+
+
+
+app.include_router(router)
 
 
 register_tortoise(
